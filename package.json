@@ -1,0 +1,47 @@
+{
+  "name": "awaybot",
+  "version": "1.0.0",
+  "description": "A command line tool to run when you'll be out of the office for a while.",
+  "author": "Katy DeCorah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katydecorah/awaybot"
+  },
+  "bugs": {
+    "url": "https://github.com/katydecorah/awaybot/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js",
+    "lint": "eslint .",
+    "precommit": "lint-staged"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "blue-tape": "^1.0.0",
+    "eslint": "^4.14.0",
+    "fs": "0.0.1-security",
+    "google-auth-library": "^0.12.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2",
+    "readline": "^1.3.0",
+    "tape": "^4.8.0"
+  },
+  "dependencies": {
+    "googleapis": "^23.0.0",
+    "moment": "^2.20.1",
+    "request": "^2.83.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint",
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "bin": {
+    "away": "./bin/away.js"
+  }
+}
