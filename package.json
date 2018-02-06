@@ -18,19 +18,19 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^8.1.2",
+    "babel-eslint": "^8.2.1",
     "blue-tape": "^1.0.0",
-    "eslint": "^4.14.0",
+    "eslint": "^4.17.0",
     "fs": "0.0.1-security",
     "google-auth-library": "^0.12.0",
     "husky": "^0.14.3",
-    "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
     "readline": "^1.3.0",
     "tape": "^4.8.0"
   },
   "dependencies": {
-    "googleapis": "^23.0.0",
+    "googleapis": "^23.0.2",
     "moment": "^2.20.1",
     "request": "^2.83.0"
   },

@@ -21,7 +21,7 @@ const TOKEN_DIR =
   '/.credentials/';
 const TOKEN_PATH = TOKEN_DIR + 'awaybot.json';
 
-const login = (event, context, callback) => {
+module.exports.login = (event, context, callback) => {
   // Load client secrets from a local file.
   fs.readFile('client_secret.json', function processClientSecrets(
     err,
@@ -33,7 +33,7 @@ const login = (event, context, callback) => {
     }
     // Authorize a client with the loaded credentials, then call the
     // Gmail API.
-    authorize(JSON.parse(content), () => {
+    module.exports.authorize(JSON.parse(content), () => {
       return callback(
         null,
         '\n\n✅  Success! You are connected to Gmail and Calendar\n\n'
@@ -49,7 +49,7 @@ const login = (event, context, callback) => {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-const authorize = (credentials, callback) => {
+module.exports.authorize = (credentials, callback) => {
   const clientSecret = credentials.installed.client_secret;
   const clientId = credentials.installed.client_id;
   const redirectUrl = credentials.installed.redirect_uris[0];
@@ -114,9 +114,4 @@ const storeToken = token => {
   }
   fs.writeFile(TOKEN_PATH, JSON.stringify(token));
   console.log(`Token stored to ${TOKEN_PATH}`);
-};
-
-module.exports = {
-  authorize,
-  login
 };

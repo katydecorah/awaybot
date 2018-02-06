@@ -3,11 +3,11 @@
 const moment = require('moment');
 const config = require('../config.js');
 
-const firstDayBack = (start, total, totalHolidays) => {
+module.exports.firstDayBack = (start, total, totalHolidays) => {
   return new Promise(resolve => {
     // start of leave should not  be a weekend
     if (!start) start = moment().format('YYYY-MM-DD');
-    start = notAWeekend(start);
+    start = module.exports.notAWeekend(start);
 
     let day;
     let length =
@@ -21,7 +21,7 @@ const firstDayBack = (start, total, totalHolidays) => {
         length++;
     }
     // return date should not be on the weekend
-    let returnDate = notAWeekend(
+    let returnDate = module.exports.notAWeekend(
       moment(day)
         .add(1, 'day')
         .format('YYYY-MM-DD')
@@ -40,7 +40,7 @@ const firstDayBack = (start, total, totalHolidays) => {
   });
 };
 
-const notAWeekend = date => {
+module.exports.notAWeekend = date => {
   if (moment(date, 'YYYY-MM-DD').format('ddd') == 'Sat') {
     return moment(date)
       .add(2, 'day')
@@ -52,9 +52,4 @@ const notAWeekend = date => {
   } else {
     return date;
   }
-};
-
-module.exports = {
-  firstDayBack,
-  notAWeekend
 };

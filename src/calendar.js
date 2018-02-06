@@ -6,15 +6,14 @@ const quickstart = require('./quickstart.js');
 const moment = require('moment');
 const config = require('../config.js');
 
-const createCalendarEvent = date => {
+module.exports.createCalendarEvent = date => {
   return new Promise((resolve, reject) => {
     fs.readFile('client_secret.json', function processClientSecrets(
       err,
       content
     ) {
       if (err) {
-        console.log(`Error loading client secret file: ${err}`);
-        return;
+        reject(`Error loading client secret file: ${err}`);
       }
       quickstart.authorize(JSON.parse(content), function updateVacation(auth) {
         const calendar = google.calendar('v3');
@@ -50,5 +49,3 @@ const createCalendarEvent = date => {
     });
   });
 };
-
-module.exports.createCalendarEvent = createCalendarEvent;

@@ -4,7 +4,7 @@ const moment = require('moment');
 const request = require('request');
 const config = require('../config.js');
 
-const setAwayFromSlack = () => {
+module.exports.setAwayFromSlack = () => {
   const opts = {
     url: `https://slack.com/api/users.setPresence?token=${
       process.env.SlackAccessToken
@@ -21,7 +21,7 @@ const setAwayFromSlack = () => {
   });
 };
 
-const updateSlackStatus = date => {
+module.exports.updateSlackStatus = date => {
   const profile = {
     status_text: config.statusText.replace(
       /{date}/g,
@@ -47,9 +47,4 @@ const updateSlackStatus = date => {
       resolve(body);
     });
   });
-};
-
-module.exports = {
-  updateSlackStatus,
-  setAwayFromSlack
 };

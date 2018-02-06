@@ -6,15 +6,14 @@ const quickstart = require('./quickstart.js');
 const moment = require('moment');
 const config = require('../config.js');
 
-const sendEmail = date => {
+module.exports.sendEmail = date => {
   return new Promise((resolve, reject) => {
     fs.readFile('client_secret.json', function processClientSecrets(
       err,
       content
     ) {
       if (err) {
-        console.log(`Error loading client secret file: ${err}`);
-        return;
+        reject(`Error loading client secret file: ${err}`);
       }
       quickstart.authorize(JSON.parse(content), function updateVacation(auth) {
         const gmail = google.gmail('v1');
@@ -47,7 +46,7 @@ const sendEmail = date => {
   });
 };
 
-const makeBody = (to, subject, message) => {
+module.exports.makeBody = (to, subject, message) => {
   const str = [
     "Content-Type: text/plain; charset='UTF-8'\n",
     'MIME-Version: 1.0\n',
@@ -66,15 +65,14 @@ const makeBody = (to, subject, message) => {
     .replace(/\//g, '_');
 };
 
-const setVacationResponse = date => {
+module.exports.setVacationResponse = date => {
   return new Promise((resolve, reject) => {
     fs.readFile('client_secret.json', function processClientSecrets(
       err,
       content
     ) {
       if (err) {
-        console.log(`Error loading client secret file: ${err}`);
-        return;
+        reject(`Error loading client secret file: ${err}`);
       }
       quickstart.authorize(JSON.parse(content), function updateVacation(auth) {
         const gmail = google.gmail('v1');
@@ -106,10 +104,4 @@ const setVacationResponse = date => {
       });
     });
   });
-};
-
-module.exports = {
-  setVacationResponse,
-  sendEmail,
-  makeBody
 };
