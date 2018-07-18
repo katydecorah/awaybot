@@ -22,7 +22,7 @@
     "blue-tape": "^1.0.0",
     "eslint": "^4.19.1",
     "fs": "0.0.1-security",
-    "google-auth-library": "^0.12.0",
+    "google-auth-library": "^1.6.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.1",
     "prettier": "^1.12.1",
