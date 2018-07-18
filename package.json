@@ -30,7 +30,7 @@
     "tape": "^4.9.0"
   },
   "dependencies": {
-    "googleapis": "^23.0.2",
+    "googleapis": "^32.0.0",
     "moment": "^2.22.1",
     "request": "^2.85.0"
   },
