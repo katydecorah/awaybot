@@ -32,7 +32,7 @@
   "dependencies": {
     "googleapis": "^23.0.2",
     "moment": "^2.22.1",
-    "request": "^2.85.0"
+    "request": "^2.87.0"
   },
   "lint-staged": {
     "**/*.js": [
