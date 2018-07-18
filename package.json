@@ -18,7 +18,7 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "blue-tape": "^1.0.0",
     "eslint": "^4.19.1",
     "fs": "0.0.1-security",
