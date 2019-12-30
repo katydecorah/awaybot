@@ -5,7 +5,7 @@
   "author": "Katy DeCorah",
   "repository": {
     "type": "git",
-    "url": "https://github.com/katydecorah/awaybot"
+    "url": "git+https://github.com/katydecorah/awaybot.git"
   },
   "bugs": {
     "url": "https://github.com/katydecorah/awaybot/issues"
@@ -43,5 +43,9 @@
   },
   "bin": {
     "away": "./bin/away.js"
+  },
+  "homepage": "https://github.com/katydecorah/awaybot#readme",
+  "directories": {
+    "test": "test"
   }
 }
